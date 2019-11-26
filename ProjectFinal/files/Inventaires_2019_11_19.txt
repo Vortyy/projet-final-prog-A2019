@@ -1,0 +1,9 @@
+Boeuf;542,4;kg
+Pain;360(12) + 5;unité
+Laitue;45(40) + 0;feuille
+Cheddar jaune;87(20) + 10;tranche
+Cheddar blanc;21(20) + 3;tranche
+Cornichons;48(100) + 30;tranche
+Oignons;22;kg
+Tomate;40(20) + 3;tranche
+Sauce;8,3;kg

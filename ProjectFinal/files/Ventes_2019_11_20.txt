@@ -1,0 +1,5 @@
+Big Mac;1046
+2 cheese burgers;269,86
+Quart de livre avec fromage;917,60
+Double Quart de livre avec fromage;890,34
+Bacon Club house;1011,36
