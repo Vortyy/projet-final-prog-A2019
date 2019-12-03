@@ -15,7 +15,6 @@
 #include <fstream>
 #include <locale>
 #include <string>
-#include <string.h>
 #include "cleanIO.h"
 
 using namespace std;
