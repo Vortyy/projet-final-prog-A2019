@@ -53,7 +53,6 @@ void cinIntWithBoundsCheck(int &intVar, int min, int max) {
 		cinClear();
 		cin >> intVar;
 	}
-
 }
 
 /*

@@ -13,9 +13,9 @@
 
 #include <iostream>
 #include <fstream>
-#include <locale>
 #include <string>
 #include <string.h>
+#include <locale>
 #include "cleanIO.h"
 
 using namespace std;
@@ -25,9 +25,10 @@ using namespace std;
  * param: char ** argv: tableau contenant les parametres recus de ligne de commande
  * return: int: code d'erreur: 0 = aucune erreur
  */
-int main (int argc, char **argv) {
+void main (int argc, char **argv) {
 	locale::global(locale{ "fr" });
 
+	cout << "Programme par Étienne Ménard et Emily Bernier." << endl;
 
-	return 0;
+	system("PAUSE");
 }
