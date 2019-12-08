@@ -19,7 +19,7 @@ void getDate(string &date) {
 	askJour(annee, mois, jour);
 
 	string strAnnee = to_string(annee), strMois = to_string(mois), strJour = to_string(jour);
-	zeroSpacing(strMois, -4); zeroSpacing(strJour, 2);
+	zeroSpacing(strAnnee, 4); zeroSpacing(strMois, 2); zeroSpacing(strJour, 2);
 
 	date = strAnnee + "_" + strMois + "_" + strJour;
 }
@@ -57,7 +57,7 @@ void askJour(int annee, int mois, int &jour) {
  */
 void zeroSpacing(string &nombre, int nbChiffres) {
 	string temp = "";
-	for (int i = 0; i < (nbChiffres - 1); i++) {
+	for (int i = 0; i < (nbChiffres - nombre.length()); i++) {
 		temp = "0" + temp;
 	}
 
