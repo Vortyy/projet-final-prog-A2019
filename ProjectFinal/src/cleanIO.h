@@ -63,15 +63,23 @@ void askIntWithBounds(string message, int &intVar, int min, int max);
 
 /*
  *  Vérifies si le int entré en paramètre est un int.
- *  param: int &positiveIntVar : Int à vérifier
+ *  param: double &positiveIntVar : Double à vérifier
  */
 void cinDoubleCheck(int &doubleVar);
 
 /*
  *  Vérifies si le double entré en paramètre est positif.
- *  param: int &intVar : Int à vérifier
+ *  param: double &intVar : Double à vérifier
  */
 void cinPositiveDoubleCheck(int &doubleVar);
+
+/*
+ *  Vérifies si le double entré en paramètre est positif.
+ *  param: double &doubleVar : Double à vérifier
+ *  param: int min : Valeur minimale à rentrer.
+ *  param: int max : Valeur maximale à rentrer.
+ */
+void cinDoubleWithBoundsCheck(int &doubleVar, int min, int max);
 
 /*
  *  Demandes un double à l'utilisateur.
@@ -81,11 +89,26 @@ void cinPositiveDoubleCheck(int &doubleVar);
 void askDouble(string message, double &doubleVar);
 
 /*
+ *  Demandes un double positif à l'utilisateur.
+ *  param: string message : La question à poser à l'utilisateur.
+ *  param: double &doubleVar : Le paramètre dans lequel la réponse de l'utilisateur sera enregistrée.
+ */
+void askPositiveDouble(string message, int &intVar);
+
+/*
+ *  Demandes un double entre les bornes définies à l'utilisateur.
+ *  param: string message : La question à poser à l'utilisateur.
+ *  param: double &doubleVar : Le paramètre dans lequel la réponse de l'utilisateur sera enregistrée.
+ *  param: int min : Valeur minimale à rentrer.
+ *  param: int max : Valeur maximale à rentrer.
+ */
+void askDoubleWithBounds(string message, int &doubleVar, int min, int max);
+
+/*
  *  Demandes un string à l'utilisateur.
  *  param: string question : La question à poser à l'utilisateur.
  *  param: string &stringVar : Le paramètre dans lequel la réponse de l'utilisateur sera enregistrée.
  */
 void askString(string message, string &stringVar);
-
 
 #endif /* SRC_CLEANIO_H_ */

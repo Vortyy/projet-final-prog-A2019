@@ -116,10 +116,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\cleanIO.cpp" />
+    <ClCompile Include="src\date.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\cleanIO.h" />
+    <ClInclude Include="src\date.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="files\Achats_2019_11_20.txt" />
+    <Text Include="files\Inventaires_2019_11_19.txt" />
+    <Text Include="files\Ventes_2019_11_20.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

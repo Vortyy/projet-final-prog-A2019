@@ -93,18 +93,8 @@ void askIntWithBounds(string message, int &intVar, int min, int max) {
 }
 
 /*
- *  Demandes un double à l'utilisateur.
- *  param: string question : La question à poser à l'utilisateur.
- *  param: double &doubleVar : Le paramètre dans lequel la réponse de l'utilisateur sera enregistrée.
- */
-void askDouble(string message, double &doubleVar) {
-	cout << message;
-	cin >> doubleVar;
-}
-
-/*
  *  Vérifies si le int entré en paramètre est un int.
- *  param: int &positiveIntVar : Int à vérifier
+ *  param: double &positiveIntVar : Double à vérifier
  */
 void cinDoubleCheck(int &doubleVar) {
 	while (cin.fail()) { //loop tant que le cin est corrompu
@@ -116,7 +106,7 @@ void cinDoubleCheck(int &doubleVar) {
 
 /*
  *  Vérifies si le double entré en paramètre est positif.
- *  param: int &intVar : Int à vérifier
+ *  param: double &doubleVar : Double à vérifier
  */
 void cinPositiveDoubleCheck(int &doubleVar) {
 	cinDoubleCheck(doubleVar);
@@ -125,6 +115,57 @@ void cinPositiveDoubleCheck(int &doubleVar) {
 		cinClear();
 		cin >> doubleVar;
 	}
+}
+
+/*
+ *  Vérifies si le double entré en paramètre est positif.
+ *  param: double &doubleVar : Double à vérifier
+ *  param: int min : Valeur minimale à rentrer.
+ *  param: int max : Valeur maximale à rentrer.
+ */
+void cinDoubleWithBoundsCheck(int &doubleVar, int min, int max) {
+	cinIntCheck(doubleVar);
+	while (doubleVar < min || doubleVar > max) {
+		cout << "Veuillez rentrer une valeur numerique entre " << min << " et " << max << ": ";
+		cinClear();
+		cin >> doubleVar;
+	}
+}
+
+/*
+ *  Demandes un double à l'utilisateur.
+ *  param: string question : La question à poser à l'utilisateur.
+ *  param: double &doubleVar : Le paramètre dans lequel la réponse de l'utilisateur sera enregistrée.
+ */
+void askDouble(string message, double &doubleVar) {
+	cout << message;
+	cin >> doubleVar;
+}
+
+/*
+ *  Demandes un int positif à l'utilisateur.
+ *  param: string question : La question à poser à l'utilisateur.
+ *  param: double &double : Le paramètre dans lequel la réponse de l'utilisateur sera enregistrée.
+ */
+void askPositiveDouble(string message, int &doubleVar) {
+	cout << message;
+	cin >> doubleVar;
+	cinPositiveDoubleCheck(doubleVar);
+	cinClear();
+}
+
+/*
+ *  Demandes un double entre les bornes définies à l'utilisateur.
+ *  param: string question : La question à poser à l'utilisateur.
+ *  param: double &double : Le paramètre dans lequel la réponse de l'utilisateur sera enregistrée.
+ *  param: int min : Valeur minimale à rentrer.
+ *  param: int max : Valeur maximale à rentrer.
+ */
+void askDoubleWithBounds(string message, int &doubleVar, int min, int max) {
+	cout << message;
+	cin >> doubleVar;
+	cinDoubleWithBoundsCheck(doubleVar, min, max);
+	cinClear();
 }
 
 /*
