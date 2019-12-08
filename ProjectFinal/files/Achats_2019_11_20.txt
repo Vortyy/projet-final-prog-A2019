@@ -1,5 +1,5 @@
 ﻿Boeuf;200;kg
-Pain;70(12);unité
+Pain;70(12);unite
 Laitue;30(40);feuille
 Cheddar jaune;100(20);tranche
 Cheddar blanc;10(20);tranche

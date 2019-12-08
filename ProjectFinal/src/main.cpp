@@ -28,12 +28,31 @@ using namespace std;
 void main (int argc, char **argv) {
 	locale::global(locale{ "fr" });
 	string today, hier;
-
 	getDates(today, hier);
 	cout << today << endl;
 	cout << hier << endl;
 
-	cout << endl << "Programme par Étienne Ménard et Emily Bernier." << endl;
+	string pathInventaire = "./files/Inventaires_" + hier + ".txt";
+	string pathAchats = "./files/Achats_" + today + ".txt";
+	string pathVentes = "./files/Ventes_" + today + ".txt";
+	string pathAnalyse = "./files/Analyse_" + today + ".txt";
+	ifstream fichierInventaire(pathInventaire);
+	ifstream fichierAchats(pathAchats);
+	ifstream fichierVentes(pathVentes);
+	ofstream fichierAnalyse(pathAnalyse);
+	string ligne;
 
+	if (fichierInventaire) {
+		while (!fichierInventaire.eof())
+		{
+			getline(fichierInventaire, ligne);
+			cout << ligne << endl;
+		}
+
+		fichierInventaire.close();
+	}
+	else cout << pathInventaire << " could not be opened." << endl;
+
+	cout << endl << "Programme par Étienne Ménard et Emily Bernier." << endl;
 	system("PAUSE");
 }
