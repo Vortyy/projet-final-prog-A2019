@@ -9,19 +9,59 @@
 
  /*
   *  Demandes la date à l'utilisateur
-  *  param: string &date : String dans lequel la date demandée en format AAAA_MM_JJ sera enregistrée.
+  *  param: string &today : String dans lequel la date demandée en format AAAA_MM_JJ sera enregistrée.
+  *  param: string &hier : String dans lequel la date d'hier en format AAAA_MM_JJ sera enregistrée.
   */
-void getDate(string &date) {
+void getDates(string &today, string &hier) {
 	int annee, mois, jour;
+	askToday(annee, mois, jour);
 
+	int anneeHier = annee, moisHier = mois, jourHier = jour;
+	getHier(annee, mois, jour, anneeHier, moisHier, jourHier);
+
+	dateToFormat(today, annee, mois, jour);
+	dateToFormat(hier, anneeHier, moisHier, jourHier);
+}
+
+void askToday(int &annee, int &mois, int &jour) {
 	askPositiveInt("Entrez l'année: ", annee);
 	askIntWithBounds("Entrez le mois (1-12): ", mois, 1, 12);
 	askJour(annee, mois, jour);
+}
 
-	string strAnnee = to_string(annee), strMois = to_string(mois), strJour = to_string(jour);
-	zeroSpacing(strAnnee, 4); zeroSpacing(strMois, 2); zeroSpacing(strJour, 2);
+void getHier(int annee, int mois, int jour, int &anneeHier, int &moisHier, int &jourHier) {
+	if (jour == 1) {
+		moisHier -= 1;
+		switch (moisHier) {
+		case 0:
+			anneeHier = annee - 1;
+			moisHier = 12;
+			jourHier = 31;
+			break;
 
-	date = strAnnee + "_" + strMois + "_" + strJour;
+		case 2:
+			if (annee % 4 == 0) {
+				jourHier = 29;
+			} else jourHier = 28;
+			break;
+
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+			jourHier = 31;
+			break;
+
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			jourHier = 30;
+			break;
+		}
+	} else jourHier = jour - 1;
 }
 
 void askJour(int annee, int mois, int &jour) {
@@ -62,4 +102,14 @@ void zeroSpacing(string &nombre, int nbChiffres) {
 	}
 
 	nombre = temp + nombre;
+}
+
+void dateToFormat(string &date, int annee, int mois, int jour) {
+	string strAnnee = to_string(annee), strMois = to_string(mois), strJour = to_string(jour);
+	
+	zeroSpacing(strAnnee, 4); 
+	zeroSpacing(strMois, 2); 
+	zeroSpacing(strJour, 2);
+
+	date = strAnnee + "_" + strMois + "_" + strJour;
 }

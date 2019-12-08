@@ -16,20 +16,19 @@ using namespace std;
 
 /*
  *  Demandes la date à l'utilisateur
- *  param: string &date : String dans lequel la date demandée en format AAAA_MM_JJ sera enregistrée.
+ *  param: string &today : String dans lequel la date demandée en format AAAA_MM_JJ sera enregistrée.
+ *  param: string &hier : String dans lequel la date d'hier en format AAAA_MM_JJ sera enregistrée.
  */
-void getDate(string &date);
+void getDates(string &today, string &hier);
 
-/*
- *
- *
- */
+void askToday(int &annee, int &mois, int &jour);
+
+void getHier(int annee, int mois, int jour, int &anneeHier, int &moisHier, int &jourHier);
+
 void askJour(int annee, int mois, int &jour);
 
-/*
- *
- *
- */
+void dateToFormat(string &date, int annee, int mois, int jour);
+
 void zeroSpacing(string &nombre, int nbChiffres);
 
 #endif /* SRC_DATE_H_ */

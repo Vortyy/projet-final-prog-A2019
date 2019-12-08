@@ -27,12 +27,13 @@ using namespace std;
  */
 void main (int argc, char **argv) {
 	locale::global(locale{ "fr" });
-	string date;
+	string today, hier;
 
-	getDate(date);
-	cout << date << endl;
+	getDates(today, hier);
+	cout << today << endl;
+	cout << hier << endl;
 
-	cout << "Programme par Étienne Ménard et Emily Bernier." << endl;
+	cout << endl << "Programme par Étienne Ménard et Emily Bernier." << endl;
 
 	system("PAUSE");
 }
