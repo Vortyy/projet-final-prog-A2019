@@ -1,3 +1,3 @@
 ﻿  main.cpp
-c:\users\étienne\documents\école\cégep automne 2019\programmation\projectfinal\projectfinal\src\main.cpp(31): warning C4326: le type de retour de 'main' doit être 'int' au lieu de 'void'
+c:\users\étienne\documents\école\cégep automne 2019\programmation\projectfinal\projectfinal\src\main.cpp(37): warning C4326: le type de retour de 'main' doit être 'int' au lieu de 'void'
   ProjectFinal.vcxproj -> C:\Users\Étienne\Documents\École\Cégep Automne 2019\Programmation\ProjectFinal\Debug\ProjectFinal.exe
