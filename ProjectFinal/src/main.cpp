@@ -12,18 +12,15 @@
  */
 
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <locale>
 #include "cleanIO.h"
 #include "date.h"
+#include "fileSorcery.h"
 #include "tableMagic.h"
 #include "beeseChurger.h"
 
 using namespace std;
-
-void readFileToTable(string path, double table[]);
-void readFileTo2Tables(string path, double table1[], string table2[]);
 
 /* fonction: lancement du programme
  * param: int argc: nb paramètres recus de la ligne de commande
@@ -61,37 +58,3 @@ void main (int argc, char **argv) {
 	system("PAUSE");
 }
 
-void readFileToTable(string path, double table[]) {
-	ifstream file(path);
-	string ligne;
-	int index = 0;
-
-	if (file) {
-		index = 0;
-		while (!file.eof()) {
-			getline(file, ligne);
-			addVntesQnt(ligne, table, index);
-			index++;
-		}
-
-		file.close();
-	}
-	else cout << path << " could not be opened." << endl;
-}
-
-void readFileTo2Tables(string path, double table1[], string table2[]) {
-	ifstream file(path);
-	string ligne;
-	int index = 0;
-
-	if (file) {
-		while (!file.eof()) {
-			getline(file, ligne);
-			addLineToTables(ligne, table1, table2, index);
-			index++;
-		}
-
-		file.close();
-	}
-	else cout << path << " could not be opened." << endl;
-}

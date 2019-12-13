@@ -118,6 +118,7 @@
     <ClCompile Include="src\beeseChurger.cpp" />
     <ClCompile Include="src\cleanIO.cpp" />
     <ClCompile Include="src\date.cpp" />
+    <ClCompile Include="src\fileSorcery.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\tableMagic.cpp" />
   </ItemGroup>
@@ -125,6 +126,7 @@
     <ClInclude Include="src\beeseChurger.h" />
     <ClInclude Include="src\cleanIO.h" />
     <ClInclude Include="src\date.h" />
+    <ClInclude Include="src\fileSorcery.h" />
     <ClInclude Include="src\tableMagic.h" />
   </ItemGroup>
   <ItemGroup>
