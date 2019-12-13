@@ -27,19 +27,17 @@ using namespace std;
  * param: char ** argv: tableau contenant les parametres recus de ligne de commande
  * return: int: code d'erreur: 0 = aucune erreur
  */
-void main (int argc, char **argv) {
+void main(int argc, char **argv) {
 	locale::global(locale{ "fr" });
 	string today, hier;
 	getDates(today, hier);
-	cout << "Date d'aujourd'hui: " << today << endl << "Date d'hier: " << hier << endl << endl;
 
 	string pathInventaire = "./files/Inventaires_" + hier + ".txt";
 	string pathAchats = "./files/Achats_" + today + ".txt";
 	string pathVentes = "./files/Ventes_" + today + ".txt";
 	string pathAnalyse = "./files/Analyse_" + today + ".txt";
-	//ofstream fichierAnalyse(pathAnalyse); // not yet
 
-	string tableNom[9] = { "Boeuf", "Pain" "Laitue", "Cheddar jaune", "Cheddar blanc", "Cornichons", "Oignons", "Tomate" "Sauce" };
+	string tableNom[9] = { "Boeuf", "Pain", "Laitue", "Cheddar jaune", "Cheddar blanc", "Cornichons", "Oignons", "Tomate", "Sauce" };
 	string tableType[9];
 	double tableQntInv[9];
 	double tableQntAcht[9];
@@ -53,8 +51,12 @@ void main (int argc, char **argv) {
 
 	calcPertes(tableQntInv, tableQntVentes, tablePertes);
 	calcAnal(tableQntInv, tableQntAcht, tableQntVentes, tablePertes, tableAnal);
+	
+	writeAnal(pathAnalyse, tableNom, tableType, tableQntInv, tableQntAcht, tableQntVentes, tablePertes, tableAnal);
+
 
 	cout << endl << "Programme par Étienne Ménard et Emily Bernier." << endl;
 	system("PAUSE");
 }
+
 

@@ -89,3 +89,9 @@ void calcAnal(double tableInv[], double tableAchats[], double tableVntes[], doub
 		tableAnal[i] = tableInv[i] + tableAchats[i] - tableVntes[i] - tablePertes[i];
 	}
 }
+
+void deKiloGraphy(string table[]) {
+	for (int i = 0; i < 9; i++) {
+		if (table[i] == "kg") table[i] = "g";
+	}
+}
