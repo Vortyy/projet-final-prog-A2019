@@ -8,6 +8,13 @@
 #include "tableMagic.h"
 #include "beeseChurger.h"
 
+ /*
+  * fonction: Sépare les strings par le limiter ";"
+  * param: string ligne
+  * param: double tableQnt[]: Table
+  * param: string tableType[]:
+  * param: index: incrementeur
+  */
 void addLineToTables(string ligne, double tableQnt[], string tableType[], int index) {
 	string limiter = ";"; string temp;
 	auto start = 0U;
@@ -27,6 +34,13 @@ void addLineToTables(string ligne, double tableQnt[], string tableType[], int in
 	tableQnt[index] = editQnt(qnt, tableType, index);
 }
 
+/* 
+ * fonction: Si le type est "kg", il calcule le type en grammes
+ * param: string path: le path du fichier à lire
+ * param: tableType[]: table avec les types d'unité de mesures
+ * param: int index: incrementeur
+ * return:
+ */
 double editQnt(string qnt, string tableType[], int index) {
 	double newQnt;
 	newQnt = stod(qnt);
@@ -37,6 +51,12 @@ double editQnt(string qnt, string tableType[], int index) {
 	return newQnt;
 }
 
+/* 
+ * fonction: Calcule la quantité de produits
+ * param: string path: le path du fichier à lire
+ * param: double table1[]: table de double
+ * param: string table2[]: table de string
+ */
 void addVntesQnt(string ligne, double tableQnt[], int index) {
 	string limiter = ";"; string temp;
 	double ventes; double nbItem;
@@ -78,18 +98,36 @@ void addVntesQnt(string ligne, double tableQnt[], int index) {
 	}
 }
 
+/* 
+ * fonction: Calcul les pertes
+ * param: tableInv[]: table avec les quantités de produits en inventaire
+ * param: tableVntes[]: table avec la quantité de produits vendu
+ * param: tablePertes[]: table avec les pertes, necessaire pour calculer l'analyse
+ */
 void calcPertes(double tableInv[], double tableVntes[], double tablePertes[]) {
 	for (int i = 0; i < 9; i++) {
 		tablePertes[i] = tableInv[i] - tableVntes[i];
 	}
 }
 
+/* 
+ * fonction: Effectue le calcul pour le table d'analyse
+ * param: tableInv[]: Table avec les quantités de produits dans l'inventaire
+ * param: tableAchats[]: Table avec les quantités de produits d'achats du jour
+ * param: tableVntes[]: Table avec les quantités de produits vendus
+ * param: tablePertes[]: Table avec la quantité de pertes
+ * param: tableAnal[]: Table avec les quantités finals d'analyse
+ */
 void calcAnal(double tableInv[], double tableAchats[], double tableVntes[], double tablePertes[], double tableAnal[]) {
 	for (int i = 0; i < 9; i++) {
 		tableAnal[i] = tableInv[i] + tableAchats[i] - tableVntes[i] - tablePertes[i];
 	}
 }
 
+/*
+ * fonction: transforme les valeurs "kg" en "g"
+ * param: table[]: tableau dans lequel le changement de valeur est effectué.
+ */
 void deKiloGraphy(string table[]) {
 	for (int i = 0; i < 9; i++) {
 		if (table[i] == "kg") table[i] = "g";
